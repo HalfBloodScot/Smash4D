@@ -1,0 +1,10 @@
+#ifndef RENDERCHAIN_H_INCLUDED
+#define RENDERCHAIN_H_INCLUDED
+
+class RenderChain {
+public:
+
+protected:
+}
+
+#endif //RENDERCHAIN_H_INCLUDED
