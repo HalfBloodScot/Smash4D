@@ -48,7 +48,7 @@ Matrix operator*(const Matrix &lhs, const Matrix &rhs) {
 }
 
 std::ostream& operator<<(std::ostream& ostream, const Matrix& transform) {
-    ostream << transform.toString();
+    return (ostream << transform.toString());
 }
 
 std::string Matrix::toString() const {

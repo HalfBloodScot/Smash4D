@@ -8,7 +8,7 @@ Matrix Rotate4D::XY(const Matrix &matrix, double angle) {
 
 }
 
-Matrix Rotate4D::ZU(const Matrix &matrix, double angle) {
+Matrix Rotate4D::ZU(const Matrix &, double angle) {
     angle *= 3.141592 / 180.f;
     Matrix rzu(5, 5);
     rzu(0, 0) = 1;
@@ -18,5 +18,4 @@ Matrix Rotate4D::ZU(const Matrix &matrix, double angle) {
     rzu(4, 4) = 1;
     rzu(2, 3) = -sin(angle);
     rzu(3, 2) = sin(angle);
-    return rzu * matrix;
 }

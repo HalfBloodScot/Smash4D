@@ -68,3 +68,11 @@ std::string Matrix::toString() const {
     }
     return stream.str();
 }
+
+Matrix Matrix::Identity(int height, int width) {
+    static Matrix identity(height, width);
+    for (int i = 0; i < height && i < width; ++i) {
+        identity(i, i) = 1;
+    }
+    return identity;
+}

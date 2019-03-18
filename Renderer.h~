@@ -1,0 +1,13 @@
+#ifndef RENDERER_H_INCLUDED
+#define RENDERER_H_INCLUDED
+
+#include "RenderChain.h"
+
+class Renderer {
+public:
+    Renderer(int dimension);
+protected:
+    RenderChain renderChain;
+};
+
+#endif //RENDERER_H_INCLUDE
