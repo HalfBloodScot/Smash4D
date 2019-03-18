@@ -10,6 +10,7 @@
 class Primitive {
 public:
     std::string toString() const;
+    void transform(const Matrix&);
 protected:
     std::vector<Matrix> vertices;
 };
