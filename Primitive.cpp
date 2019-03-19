@@ -11,3 +11,9 @@ std::string Primitive::toString() const {
     }
     return output;
 }
+
+void Primitive::transform(const Matrix& matrix) {
+    for (auto& i : vertices) {
+        i = matrix * i;
+    }
+}

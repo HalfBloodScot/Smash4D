@@ -10,8 +10,11 @@
 
 struct Rotate4D {
     static Matrix XY(const Matrix&, double angle);
+    static Matrix YZ(const Matrix&, double angle);
+    static Matrix XZ(const Matrix&, double angle);
+    static Matrix XU(const Matrix&, double angle);
+    static Matrix YU(const Matrix&, double angle);
     static Matrix ZU(const Matrix&, double angle);
 };
-
 
 #endif //SMASH4D_ROTATE_H

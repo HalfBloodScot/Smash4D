@@ -69,6 +69,14 @@ std::string Matrix::toString() const {
     return stream.str();
 }
 
+void Matrix::clean() {
+    for (auto & i : entries) {
+        if (fabs(i) < 0.000001) {
+            i = 0;
+        }
+    }
+}
+
 Matrix Matrix::Identity(int height, int width) {
     static Matrix identity(height, width);
     for (int i = 0; i < height && i < width; ++i) {
