@@ -77,6 +77,17 @@ void Matrix::clean() {
     }
 }
 
+void Matrix::translate(const Matrix &matrix) {
+    if (matrix.getHeight() != this->getHeight()) {
+        throw std::invalid_argument("Translate: Matrix dimensions not aligned!");
+    }
+    if (matrix.getWidth() == 1) {
+        for (int y = 0; y < matrix.getHeight(); ++y) {
+            operator()(width - 1, y) += matrix(y);
+        }
+    }
+}
+
 Matrix Matrix::Identity(int height, int width) {
     Matrix identity(height, width);
     for (int i = 0; i < height && i < width; ++i) {

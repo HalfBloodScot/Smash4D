@@ -29,3 +29,9 @@ const Matrix& Primitive::operator()(int num) const  {
 int Primitive::vertexCount() const {
     return vertices.size();
 }
+
+void Primitive::translate(const Matrix &matrix) {
+    for (auto & i : vertices) {
+        i.translate(matrix);
+    }
+}

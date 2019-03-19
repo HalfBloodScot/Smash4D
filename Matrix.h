@@ -23,6 +23,7 @@ public:
     friend std::ostream& operator<<(std::ostream&, const Matrix&);
     std::string toString() const;
     void clean();
+    void translate(const Matrix&);
 
     static Matrix Identity(int height, int width);
 protected:

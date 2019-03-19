@@ -5,7 +5,9 @@ Renderer::Renderer(int _dimension, sf::RenderWindow& _renderWindow) :
 {}
 
 void Renderer::draw(const Primitive& primitive) {
-    
+    for (int i = 0; i < primitive.vertexCount(); ++i) {
+        draw(primitive(i));
+    }
 }
 
 void Renderer::draw(const Matrix& matrix) {
@@ -14,6 +16,6 @@ void Renderer::draw(const Matrix& matrix) {
     sf::RectangleShape rect;
     rect.setSize(sf::Vector2f(5, 5));
     rect.setFillColor(sf::Color::White);
-    rect.setPosition(sf::Vector2f(collapsed(0) / collapsed(2), collapsed(1) / collapsed(2)));
+    rect.setPosition(sf::Vector2f(collapsed(0)* 50, collapsed(1) * 50));
     renderWindow.draw(rect);
 }

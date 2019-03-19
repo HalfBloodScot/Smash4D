@@ -10,7 +10,7 @@ HyperCube::HyperCube() {
         for (int k = 0; k < 4; ++k) {
             vertices[i](k) = (i & (1 << k)) >> k;
         }
-        //Set scale to 100
-        vertices[i](4) = 100;
+        //Set scale to 1
+        vertices[i](4) = 1;
     }
 }

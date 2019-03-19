@@ -19,7 +19,7 @@ Matrix RenderChain::getKalibrationMatrix() const {
 
 Matrix RenderChain::compute(const Matrix& matrix) const {
     if (matrix.getHeight() != matrices.front().getWidth())  {
-        throw std::invalid_argument("Compute: Matrices dimensions do not match!");
+        throw std::invalid_argument("Compute: Matrix dimensions do not match!");
     }
     Matrix transform = matrix;
     for (auto& i : matrices) {

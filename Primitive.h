@@ -14,6 +14,7 @@ public:
     Matrix& operator()(int num);
     const Matrix& operator()(int num) const;
     int vertexCount() const;
+    void translate(const Matrix&);
 protected:
     std::vector<Matrix> vertices;
 };
