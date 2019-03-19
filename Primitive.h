@@ -11,6 +11,9 @@ class Primitive {
 public:
     std::string toString() const;
     void transform(const Matrix&);
+    Matrix& operator()(int num);
+    const Matrix& operator()(int num) const;
+    int vertexCount() const;
 protected:
     std::vector<Matrix> vertices;
 };

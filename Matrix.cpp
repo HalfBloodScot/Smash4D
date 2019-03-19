@@ -78,7 +78,7 @@ void Matrix::clean() {
 }
 
 Matrix Matrix::Identity(int height, int width) {
-    static Matrix identity(height, width);
+    Matrix identity(height, width);
     for (int i = 0; i < height && i < width; ++i) {
         identity(i, i) = 1;
     }

@@ -81,3 +81,30 @@ Matrix Rotate4D::ZU(const Matrix &matrix, double angle) {
     rzu(3, 2) = sin(angle);
     return rzu * matrix;
 }
+
+Primitive Rotate4D::XY(const Primitive& prim, double angle) {
+    Primitive newPrim = prim;
+    for (int i = 0; i < prim.vertexCount(); ++i) {
+        newPrim(i) = Rotate4D::XY(newPrim(i), angle);
+        newPrim(i).clean();
+    }
+    return newPrim;
+}
+
+Primitive Rotate4D::XU(const Primitive& prim, double angle) {
+    Primitive newPrim = prim;
+    for (int i = 0; i < prim.vertexCount(); ++i) {
+        newPrim(i) = Rotate4D::XU(newPrim(i), angle);
+        newPrim(i).clean();
+    }
+    return newPrim;
+}
+
+Primitive Rotate4D::ZU(const Primitive& prim, double angle) {
+    Primitive newPrim = prim;
+    for (int i = 0; i < prim.vertexCount(); ++i) {
+        newPrim(i) = Rotate4D::ZU(newPrim(i), angle);
+        newPrim(i).clean();
+    }
+    return newPrim;
+}

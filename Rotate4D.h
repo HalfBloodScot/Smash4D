@@ -6,6 +6,7 @@
 #define SMASH4D_ROTATE_H
 
 #include "Matrix.h"
+#include "Primitive.h"
 #include <cmath>
 
 struct Rotate4D {
@@ -15,6 +16,9 @@ struct Rotate4D {
     static Matrix XU(const Matrix&, double angle);
     static Matrix YU(const Matrix&, double angle);
     static Matrix ZU(const Matrix&, double angle);
+    static Primitive XY(const Primitive&, double angle);
+    static Primitive XU(const Primitive&, double angle);
+    static Primitive ZU(const Primitive&, double angle);
 };
 
 #endif //SMASH4D_ROTATE_H

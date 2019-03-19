@@ -1,6 +1,9 @@
 #include <iostream>
+#include <vector>
 #include "Matrix.h"
 #include "Rotate4D.h"
+#include "RenderChain.h"
+#include "Primitives/HyperCube.h"
 
 void pause() {
     std::string temp;
@@ -27,14 +30,19 @@ int main() {
     std::cout << (a * b).toString() << "\n";
     pause(); */
 
-    Matrix v(5);
-    v(0) = 1;
+    RenderChain rChain(4);
 
-    std::cout << v << "\n";
-    std::cout << Rotate4D::XY(v, 90) << "\n";
-    v = Rotate4D::XU(v, 90);
-    v.clean();
-    std::cout << v  << "\n";
+    HyperCube  hyCube;
+    Primitive newCube = Rotate4D::XY(hyCube, 57);
+    newCube = Rotate4D::XU(newCube, 32);
+    newCube = Rotate4D::ZU(newCube, 46);
+
+    std::vector<Matrix> oldPoints = rChain.compute(hyCube);
+    std::vector<Matrix> newPoints = rChain.compute(newCube);
+
+    for (auto & i : newPoints) {
+        std::cout << i << "\n";
+    }
     
     return 0;
 }

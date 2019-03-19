@@ -17,3 +17,15 @@ void Primitive::transform(const Matrix& matrix) {
         i = matrix * i;
     }
 }
+
+Matrix& Primitive::operator()(int num) {
+    return vertices[num];
+}
+
+const Matrix& Primitive::operator()(int num) const  {
+    return vertices[num];
+}
+
+int Primitive::vertexCount() const {
+    return vertices.size();
+}
