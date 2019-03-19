@@ -1,2 +1,2 @@
 # Smash4D
-General matrix library specializing in projection from 4D to 2D using homogenous coordinate tranforms.
+Smash4D is a matrix library specializing in projection from arbitrary dimensions down to 2D using homogenous coordinate tranformations.
