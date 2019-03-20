@@ -15,9 +15,9 @@ public:
     const Matrix& operator()(int num) const;
     int vertexCount() const;
     void translate(const Matrix&);
+    void findVertexNeighbours();
 protected:
     std::vector<Matrix> vertices;
 };
-
 
 #endif //SMASH4D_PRIMITIVE_H

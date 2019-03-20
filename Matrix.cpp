@@ -30,6 +30,14 @@ int Matrix::getWidth() const {
     return width;
 }
 
+Matrix operator*(const double& scalar, const Matrix& rhs) {
+    Matrix scaled = rhs;
+    for (auto& i : scaled.entries) {
+        i *= scalar;
+    }
+    return scaled;
+}
+
 Matrix operator*(const Matrix &lhs, const Matrix &rhs) {
     if (lhs.width != rhs.height) {
         throw std::invalid_argument("Multiply: Matrix dimensions do not match!");
@@ -45,6 +53,21 @@ Matrix operator*(const Matrix &lhs, const Matrix &rhs) {
         }
     }
     return product;
+}
+
+Matrix operator+(const Matrix& lhs, const Matrix& rhs) {
+    if (lhs.width != rhs.width or lhs.height != rhs.height) {
+        throw std::invalid_argument("Add: Matrix dimensions are not equal!");
+    }
+    Matrix sum(lhs.height, lhs.width);
+    for (unsigned i = 0; i < sum.entries.size(); ++i) {
+        sum.entries[i] = lhs.entries[i] + rhs.entries[i];
+    }
+    return sum;
+}
+
+Matrix operator-(const Matrix& lhs, const Matrix& rhs) {
+    return lhs + (-1 * rhs);
 }
 
 std::ostream& operator<<(std::ostream& ostream, const Matrix& transform) {
@@ -86,6 +109,21 @@ void Matrix::translate(const Matrix &matrix) {
             operator()(width - 1, y) += matrix(y);
         }
     }
+}
+
+double Matrix::norm() const {
+    return sqrt(normSquare());
+}
+
+double Matrix::normSquare() const {
+    if (width > 1) {
+        throw std::invalid_argument("NormSquare: Matrix is not a column vector!");
+    }
+    double normSq = 0;
+    for (auto & i : entries) {
+        normSq += i * i;
+    }
+    return normSq;
 }
 
 Matrix Matrix::Identity(int height, int width) {

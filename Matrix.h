@@ -19,11 +19,16 @@ public:
     const double& operator()(int y, int x = 0) const;
     int getHeight() const;
     int getWidth() const;
+    friend Matrix operator*(const double& scalar, const Matrix& rhs);
     friend Matrix operator*(const Matrix& lhs, const Matrix& rhs);
+    friend Matrix operator+(const Matrix& lhs, const Matrix& rhs);
+    friend Matrix operator-(const Matrix& lhs, const Matrix& rhs);
     friend std::ostream& operator<<(std::ostream&, const Matrix&);
     std::string toString() const;
     void clean();
     void translate(const Matrix&);
+    double norm() const;
+    double normSquare() const;
 
     static Matrix Identity(int height, int width);
 protected:
