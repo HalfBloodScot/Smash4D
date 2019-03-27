@@ -23,6 +23,8 @@ public:
     friend Matrix operator*(const Matrix& lhs, const Matrix& rhs);
     friend Matrix operator+(const Matrix& lhs, const Matrix& rhs);
     friend Matrix operator-(const Matrix& lhs, const Matrix& rhs);
+    friend bool operator<(const Matrix& lhs, const Matrix& rhs);
+    friend bool operator>(const Matrix& lhs, const Matrix& rhs);
     friend std::ostream& operator<<(std::ostream&, const Matrix&);
     std::string toString() const;
     void clean();
