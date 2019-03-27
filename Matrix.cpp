@@ -70,6 +70,14 @@ Matrix operator-(const Matrix& lhs, const Matrix& rhs) {
     return lhs + (-1 * rhs);
 }
 
+bool operator<(const Matrix& lhs, const Matrix& rhs) {
+    return lhs.normSquare() < rhs.normSquare();
+}
+
+bool operator>(const Matrix& lhs, const Matrix& rhs) {
+    return lhs.normSquare() > rhs.normSquare();
+}
+
 std::ostream& operator<<(std::ostream& ostream, const Matrix& transform) {
     return (ostream << transform.toString());
 }
@@ -116,9 +124,6 @@ double Matrix::norm() const {
 }
 
 double Matrix::normSquare() const {
-    if (width > 1) {
-        throw std::invalid_argument("NormSquare: Matrix is not a column vector!");
-    }
     double normSq = 0;
     for (auto & i : entries) {
         normSq += i * i;
